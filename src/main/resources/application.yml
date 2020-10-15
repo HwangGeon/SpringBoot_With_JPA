@@ -10,7 +10,7 @@ server:
 spring:
   mvc:
     view:
-      prefix: /WEB-INF/views/
+      prefix: /WEB-INF/views/ #템플릿엔진을 jsp로 함,jasper라이브러리를 설정하면 자동으로 웹서버 경로가 webapp으로 잡힘 그래서 이후의 경로를 적음
       suffix: .jsp
       
   datasource:
@@ -22,13 +22,13 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: create #중요) 최초에만 create 다음엔 update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      use-new-id-generator-mappings: false
-    show-sql: true
+      use-new-id-generator-mappings: false #jpa넘버링전략을 따라가지않겠다
+    show-sql: true #콘솔에 보임
     properties:
-      hibernate.format_sql: true
+      hibernate.format_sql: true #보기좋게 정렬이 되에서 나옴
 
   jackson:
     serialization:
