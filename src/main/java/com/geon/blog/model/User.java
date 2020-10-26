@@ -10,9 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.DynamicInsert;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -52,4 +50,5 @@ public class User {
 	
 	@CreationTimestamp // 시간이 자동 입력
 	private Timestamp createDate;
+
 }
