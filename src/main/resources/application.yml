@@ -26,7 +26,7 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       use-new-id-generator-mappings: false #jpa넘버링전략을 따라가지않겠다
-    show-sql: true #콘솔에 보임
+    #show-sql: true #콘솔에 보임
     properties:
       hibernate.format_sql: true #보기좋게 정렬이 되에서 나옴
 

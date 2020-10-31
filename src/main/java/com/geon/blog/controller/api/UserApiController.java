@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.geon.blog.dto.ResponseDto;
-import com.geon.blog.model.RoleType;
 import com.geon.blog.model.User;
 import com.geon.blog.service.UserService;
 
@@ -20,7 +19,6 @@ public class UserApiController {
 	@PostMapping("/auth/joinProc")
 	public ResponseDto<Integer> save(@RequestBody User user) {
 		System.out.println("UserApiController : save 호출됨");
-		user.setRole(RoleType.USER);
 		userService.signUp(user);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}

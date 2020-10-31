@@ -16,7 +16,7 @@ let index = {
 					username: $("#username").val(),
 					password: $("#password").val(),
 					email: $("#email").val()
-			}
+			};
 			
 			//console.log(data);
 			
