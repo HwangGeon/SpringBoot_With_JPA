@@ -34,5 +34,6 @@
 		</c:choose>
 	</ul>
 </div>
+asdasdasdasdasdasdasdasdasdasd
 
 <%@include file="layout/footer.jsp"%>

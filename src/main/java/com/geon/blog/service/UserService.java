@@ -36,12 +36,24 @@ public class UserService {
 		User persistance = userRepository.findById(user.getId()).orElseThrow(()->{
 			return new IllegalArgumentException("회원 찾기 실패");
 		});
-		String rawPassword = user.getPassword();
-		String encPassword = encoder.encode(rawPassword);
-		persistance.setPassword(encPassword);
-		persistance.setEmail(user.getEmail());
+		
+		//validate 체크 => oauth 필드에 값이 없으면 수정가능
+		if(persistance.getOauth() == null || persistance.getOauth().equals("")) {
+			String rawPassword = user.getPassword();
+			String encPassword = encoder.encode(rawPassword);
+			persistance.setPassword(encPassword);
+			persistance.setEmail(user.getEmail());
+		}
 		 
 		// 회원수정 함수 종료시 => 서비스 종료 => 트랜잭션 종료 => commit 자동으로 됨
+	}
+
+	@Transactional(readOnly = true)
+	public User userFind(String username) {
+		User user = userRepository.findByUsername(username).orElseGet(()->{
+			return new User();
+		});
+		return user;
 	}
 	
 	/*시큐리티사용으로 주석처리
